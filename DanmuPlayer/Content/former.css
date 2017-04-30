@@ -148,10 +148,10 @@ table, tr, td, th {
 }
 
 .video_com_con_detail{
-    height:480px;overflow-y:scroll;font-size:12px;
+    height:480px;overflow-y:scroll;font-size:12px;cursor:pointer;
 }
-.video_com_con_detail table td{
-    padding:3px;
+.video_com_con_detail table tr,td{
+    padding:3px;height:18px;
 }
 .video_com_con_detail tr:not(:first-child):hover{
     background:#b8c0cc;
