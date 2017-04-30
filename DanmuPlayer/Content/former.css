@@ -134,5 +134,11 @@ a {
     background:rgba(0,0,0,0.6);
 }
 .video_com_menu_item {
-    display:inline-block;font-size:12px;width:137px;background:red;text-align:center;height:28px;line-height:28px;cursor:pointer;
+    display:inline-block;font-size:12px;width:137px;text-align:center;height:28px;line-height:28px;cursor:pointer;
+}
+.video_com_menu_item:hover {
+    border-bottom:2px solid #00a1d6;
+}
+.video_com_menu_item span{
+    display:inline-block;width:
 }
