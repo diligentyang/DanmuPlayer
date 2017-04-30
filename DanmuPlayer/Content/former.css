@@ -7,6 +7,10 @@ li {
 a {
     color:inherit;text-decoration:none;
 }
+table, tr, td, th {
+    border:none;padding:0;margin:0;
+}
+
 .head {
     height:170px;background-image:url("../images/top.png");background-position:center -10px;margin:0px;
 }
@@ -131,7 +135,7 @@ a {
     height:30px;border:1px solid #e2e2e2;border-left:0;border-right:0;
 }
 .video_com_con {
-    background:rgba(0,0,0,0.6);
+    
 }
 .video_com_menu_item {
     display:inline-block;font-size:12px;width:137px;text-align:center;height:28px;line-height:28px;cursor:pointer;
@@ -142,6 +146,13 @@ a {
 .video_menu_active {
     border-bottom:2px solid #00a1d6;
 }
-.video_com_menu_item span{
-    display:inline-block;width:
+
+.video_com_con_detail{
+    height:480px;overflow-y:scroll;font-size:12px;
+}
+.video_com_con_detail table td{
+    padding:3px;
+}
+.video_com_con_detail tr:not(:first-child):hover{
+    background:#b8c0cc;
 }
