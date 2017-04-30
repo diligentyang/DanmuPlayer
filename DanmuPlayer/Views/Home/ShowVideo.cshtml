@@ -34,7 +34,14 @@
                 <div class="video_com_menu_item">弹幕列表</div>
             </div>
             <div class="video_com_con">
+                <div class="video_com_con_detail">
+                    111111111111
 
+                </div>
+                <div class="video_com_con_detail">
+                    2222222222222
+
+                </div>
             </div>
         </div>
     </div>
@@ -46,6 +53,15 @@
 
 
 <script>
+    $(document).ready(function () {
+        $(".video_com_con_detail").eq(0).show().siblings().hide();
+        $(".video_com_menu_item").click(function () {
+            var num = $(".video_com_menu_item").index(this);
+            $(this).addClass("video_menu_active").siblings().removeClass("video_menu_active");
+            $(".video_com_con_detail").eq(num).show().siblings().hide();
+        })
+    })
+
     $("#danmup").DanmuPlayer({
         src: "/video/level5.mp4",
         height: "480px", //区域的高度

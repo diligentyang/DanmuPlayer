@@ -139,6 +139,9 @@ a {
 .video_com_menu_item:hover {
     border-bottom:2px solid #00a1d6;
 }
+.video_menu_active {
+    border-bottom:2px solid #00a1d6;
+}
 .video_com_menu_item span{
     display:inline-block;width:
 }
