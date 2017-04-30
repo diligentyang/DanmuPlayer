@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "ShowVideo";
+}
+
+<!--<h2>@ViewBag.video_id</h2>-->
+<div class="show_video_content">
+    <div class="video_head">
+        <h2 style="color:#525659;font-size:16px;">[系列] 大神出系列</h2>
+        <ul>
+            <li><span style="background-position:-659px -210px;"></span><div>11.6万</div></li>
+            <li><span style="background-position:-659px -275px;"></span><div>1091</div></li>
+            <li><span style="background-position:-659px -338px;"></span><div>11.6万</div></li>
+            <li><span style="background-position:-659px -403px;"></span><div>11.6万</div></li>
+        </ul>
+    </div>
+    <div class="video_main">
+        <div id="danmup" style="float:left;">
+
+
+        </div>
+        <div style="display: none;">
+            <span class="glyphicon" aria-hidden="true">&#xe072</span>
+            <span class="glyphicon" aria-hidden="true">&#xe073</span>
+            <span class="glyphicon" aria-hidden="true">&#xe242</span>
+            <span class="glyphicon" aria-hidden="true">&#xe115</span>
+            <span class="glyphicon" aria-hidden="true">&#xe111</span>
+            <span class="glyphicon" aria-hidden="true">&#xe096</span>
+            <span class="glyphicon" aria-hidden="true">&#xe097</span>
+        </div>
+        <div class="video_com">
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+<script>
+    $("#danmup").DanmuPlayer({
+        src: "/video/level5.mp4",
+        height: "480px", //区域的高度
+        width: "700px" //区域的宽度
+        //,urlToGetDanmu:"query.php"
+        //,urlToPostDanmu:"stone.php?id=250"
+    });
+
+    /*setTimeout(function(){
+		alert($('#danmup .danmu-div').data("nowTime"));
+	},5000)*/
+
+
+    $("#danmup .danmu-div").danmu("addDanmu", [
+      { "text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2 }
+      , { "text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3 }
+      , { "text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 10 }
+      , { "text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3 }
+      , { "text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 9 }
+      , { "text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 3 }
+      , { "text": "22222222222222", color: "orange", size: 1, position: 0, time: 20 }
+    ])
+
+</script>
