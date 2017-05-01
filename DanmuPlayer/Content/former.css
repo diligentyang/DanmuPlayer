@@ -156,3 +156,29 @@ table, tr, td, th {
 .video_com_con_detail tr:not(:first-child):hover{
     background:#b8c0cc;
 }
+.video_con_tj{
+    height:80px;padding-left:15px;padding-top:10px;font-size:12px;
+}
+.video_con_pic{
+    height:80px;width:120px;float:left;
+}
+.video_con_pic img{
+    height:80px;width:110px;
+}
+.video_con_title{
+    height:80px;float:left;width:115px;
+}
+
+.video_con_title_con {
+    height:40px;padding-top:10px;
+}
+
+.video_con_play {
+    background-image:url('/images/icons_b.png');background-position:-282px -90px;width:40px;height:14px;padding-left:14px;line-height:14px;display:inline-block;font-size:10px;color:#99a2aa;
+}
+.video_con_dm {
+    background-image:url('/images/icons_b.png');background-position:-282px -218px;width:40px;height:14px;padding-left:14px;line-height:14px;display:inline-block;font-size:10px;color:#99a2aa;
+}
+.video_con_tj:hover {
+    color:aqua;
+}
