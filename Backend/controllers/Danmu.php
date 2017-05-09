@@ -5,17 +5,15 @@ class Danmu extends \systems\DYController
 {
     public function actionStone()
     {
-		$id = \systems\DYBaseFunc::segment(3);
-		/*
+		$vid = $this->segment(3);
         $pdo = \lib\Factory::GetMySQL();
 		$content = $_POST['danmu'];
 		$arr = [
-			'vid'=>"1",
+			'vid'=>$vid,
 			'content'=>$content,
 			'addtime'=>"2017-05-09 20:23:23"
 		];
 		$res = $pdo->insert("danmulist",$arr);
-		var_dump($res);*/
     }
 	
 	public function actionQuery(){
