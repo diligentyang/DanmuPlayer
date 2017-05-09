@@ -98,6 +98,7 @@ class Pdo implements IDataBase
             $arrayDataValue  = $this->addEscape($arrayDataValue);
         }
         $strSql = "INSERT INTO `$table` (`".implode('`,`', array_keys($arrayDataValue))."`) VALUES ('".implode("','", $arrayDataValue)."')";
+		
         $result = $this->db->exec($strSql);
         $this->getPDOError();
         return $result;

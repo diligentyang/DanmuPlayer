@@ -6,7 +6,7 @@ return array(
     'port' => '3306',
     'username' => 'root',
     'password' => '905407339',
-    'database' => 'test',
+    'database' => 'danmuplayer',
     'charset' => 'UTF8',
     'dbdriver' => 'pdo'
 );

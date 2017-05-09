@@ -3,10 +3,23 @@ namespace controllers;
 
 class Danmu extends \systems\DYController
 {
-    public function actionIndex()
+    public function actionStone()
     {
-        echo "test";
+        $pdo = \lib\Factory::GetMySQL();
+		$arr = [
+			'vid'=>"1",
+			'content'=>"1111111",
+			'addtime'=>"2017-05-09 20:23:23"
+		];
+		$res = $pdo->insert("danmulist",$arr);
+		var_dump($res);
     }
+	
+	public function actionQuery(){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("select * from danmulist");
+		var_dump($data);
+	}
 
     function actionTest()
     {
