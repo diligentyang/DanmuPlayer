@@ -5,6 +5,8 @@ class Danmu extends \systems\DYController
 {
     public function actionStone()
     {
+		echo "222222";
+		/*
         $pdo = \lib\Factory::GetMySQL();
 		$content = $_POST['danmu'];
 		$arr = [
@@ -13,7 +15,7 @@ class Danmu extends \systems\DYController
 			'addtime'=>"2017-05-09 20:23:23"
 		];
 		$res = $pdo->insert("danmulist",$arr);
-		var_dump($res);
+		var_dump($res);*/
     }
 	
 	public function actionQuery(){
