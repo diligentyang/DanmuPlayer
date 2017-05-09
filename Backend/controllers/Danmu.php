@@ -5,7 +5,7 @@ class Danmu extends \systems\DYController
 {
     public function actionStone()
     {
-		echo $this->segment(3);
+		$id = \systems\DYBaseFunc::segment(3);
 		/*
         $pdo = \lib\Factory::GetMySQL();
 		$content = $_POST['danmu'];
