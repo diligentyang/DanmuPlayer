@@ -7,11 +7,13 @@ class Danmu extends \systems\DYController
     {
 		$vid = $this->segment(3);
         $pdo = \lib\Factory::GetMySQL();
+		date_default_timezone_set('PRC');
+		$addtime = date("Y-m-d H:i:s");
 		$content = $_POST['danmu'];
 		$arr = [
 			'vid'=>$vid,
 			'content'=>$content,
-			'addtime'=>"2017-05-09 20:23:23"
+			'addtime'=>$addtime
 		];
 		$res = $pdo->insert("danmulist",$arr);
     }
