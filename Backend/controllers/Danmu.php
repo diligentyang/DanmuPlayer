@@ -6,9 +6,10 @@ class Danmu extends \systems\DYController
     public function actionStone()
     {
         $pdo = \lib\Factory::GetMySQL();
+		$content = $_POST['danmu'];
 		$arr = [
 			'vid'=>"1",
-			'content'=>"1111111",
+			'content'=>$content,
 			'addtime'=>"2017-05-09 20:23:23"
 		];
 		$res = $pdo->insert("danmulist",$arr);
