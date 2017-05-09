@@ -17,6 +17,7 @@ class DYApp
         $config = \systems\Factory::GetConfig();
         if ($config['Config']['auto_start_session']) {
             if (!session_id()) {
+				session_save_path('/tmp');
                 session_start();
             }
         }
