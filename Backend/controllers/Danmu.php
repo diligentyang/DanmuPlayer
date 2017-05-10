@@ -13,13 +13,9 @@ class Danmu extends \systems\DYController
 	
 	public function actionQuery(){
 		header('Access-Control-Allow-Origin:*');  
+		$model = $this->model("DanmuModel");
 		$vid = $this->segment(3);
-		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select content from danmulist where vid = $vid");
-		$arr = [];
-		foreach($data as $val){
-			$arr[] = $val['content'];
-		}
+		$arr = $model->selectByVid($vid);
 		//var_dump($arr);
 		echo json_encode($arr);
 	}

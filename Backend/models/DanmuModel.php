@@ -22,4 +22,14 @@ Class DanmuModel extends \systems\DYModel
 		];
 		$res = $pdo->insert("danmulist",$arr);
     }
+	
+	function selectByVid($vid){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("select content from danmulist where vid = $vid");
+		$arr = [];
+		foreach($data as $val){
+			$arr[] = $val['content'];
+		}
+		return $arr;
+	}
 }
