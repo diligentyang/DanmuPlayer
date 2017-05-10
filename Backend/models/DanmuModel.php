@@ -41,7 +41,7 @@ Class DanmuModel extends \systems\DYModel
 	*/
 	function getAllvideo($cid,$limit){
 		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video where cid=$cid limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id; ");
+		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video where cid=$cid limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
 		return $data;
 	}
 	
