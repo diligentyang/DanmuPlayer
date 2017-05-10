@@ -20,15 +20,11 @@ class Danmu extends \systems\DYController
 		echo json_encode($arr);
 	}
 
-    function actionTest()
+	//获取首页的video列表
+    function actionGetvideo()
     {
-        $data = array("id"=>'1',"name"=>'ysy');
-
-        $model = $this->model('TestModel');
-        $model->testModelMethod();
-        $model->aaa();
-        $passwd = new \lib\Password();
-        echo $passwd->generatePasswordHash("222222");
-        $this->view("request", $data);
+	   $model = $this->model("DanmuModel");
+	   $arr = $model->getAllvideo();
+	   var_dump($arr);
     }
 }

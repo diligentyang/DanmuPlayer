@@ -32,4 +32,10 @@ Class DanmuModel extends \systems\DYModel
 		}
 		return $arr;
 	}
+	
+	function getAllvideo(){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("(select * from video where cid =1 ORDER BY id desc limit 2) union (select * from video where cid =2 ORDER BY id desc limit 2)");
+		return $data;
+	}
 }
