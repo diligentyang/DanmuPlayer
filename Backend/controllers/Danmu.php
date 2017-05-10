@@ -20,8 +20,13 @@ class Danmu extends \systems\DYController
 	
 	public function actionQuery(){
 		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select * from danmulist");
-		var_dump($data);
+		$data = $pdo->query("select content from danmulist where vid = 1");
+		$arr = [];
+		foreach($data as $val){
+			$arr[] = $val['content'];
+		}
+		//var_dump($arr);
+		echo json_encode($arr);
 	}
 
     function actionTest()
