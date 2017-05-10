@@ -5,17 +5,10 @@ class Danmu extends \systems\DYController
 {
     public function actionStone()
     {
+		$model = $this->model("DanmuModel");
 		$vid = $this->segment(3);
-        $pdo = \lib\Factory::GetMySQL();
-		date_default_timezone_set('PRC');
-		$addtime = date("Y-m-d H:i:s");
 		$content = $_POST['danmu'];
-		$arr = [
-			'vid'=>$vid,
-			'content'=>$content,
-			'addtime'=>$addtime
-		];
-		$res = $pdo->insert("danmulist",$arr);
+		$model->stoneByVid($vid,$content);
     }
 	
 	public function actionQuery(){
