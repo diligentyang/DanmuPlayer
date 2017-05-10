@@ -13,7 +13,8 @@
     </div>
     <div class="item_content">
         <div style="width:720px">
-            <div class="item_content_left item_content_left1">
+            <div class="item_content_left item_content_left1" id="V1">
+                <!--
                 <div class="item_content_video">
                     <img src="~/images/pic1.jpg" />
                     <ul>
@@ -55,9 +56,9 @@
                         <li>【名作之壁】全年代日本TV动</li>
                         <li style="color:#99a2aa;"><span class="item_content_play">44.3万</span><span class="item_content_dm">44.3万</span></li>
                     </ul>
-                </div>
+                </div>-->
             </div>
-
+            
             <div class="item_content_left item_content_left1" style="display:none;">
 
                 <div class="item_content_video">
@@ -98,6 +99,26 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/getvideo",
+            type: "get",
+            data: {},
+            dataType: "jsonp",
+            error: function () {
+                alert('Error loading XML document');
+            },
+            success: function (data, status) {//如果调用php成功 
+                var output1 = "";
+                for (var i = 0; i < data[0].length;i++){
+                    output1 += '<div class="item_content_video"><img src="/images/pic1.jpg" /><ul><li><a href="/Home/ShowVideo?id=' + data[0][i].id + '">' + data[0][i].title + '</a></li><li style="color:#99a2aa;"><span class="item_content_play">44.3万</span><span class="item_content_dm">44.3万</span></li></ul></div>';
+                }
+                $("#V1").html(output1);
+            }
+        });
+    })
+</script>
 
 
 

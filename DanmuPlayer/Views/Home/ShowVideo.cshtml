@@ -149,13 +149,17 @@
             $(".video_com_con_detail").eq(num).show().siblings().hide();
         })
     })
-
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
     $("#danmup").DanmuPlayer({
         src: "/video/level5.mp4",
         height: "480px", //区域的高度
         width: "700px", //区域的宽度
-        urlToGetDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/query/1",
-        urlToPostDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/stone/1"
+        urlToGetDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/query/" + getUrlParam('id'),
+        urlToPostDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/stone/" + getUrlParam('id')
     });
 
     /*setTimeout(function(){
