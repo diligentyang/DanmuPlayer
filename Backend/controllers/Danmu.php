@@ -23,8 +23,9 @@ class Danmu extends \systems\DYController
 	//获取首页的video列表
     function actionGetvideo()
     {
+	   $callback = $_GET['callback'];
 	   $model = $this->model("DanmuModel");
 	   $arr = $model->getAllvideo();
-	   var_dump($arr);
+	   echo $callback.'('.json_encode($arr).')';
     }
 }
