@@ -19,8 +19,10 @@ class Danmu extends \systems\DYController
     }
 	
 	public function actionQuery(){
+		header('Access-Control-Allow-Origin:*');  
+		$vid = $this->segment(3);
 		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select content from danmulist where vid = 1");
+		$data = $pdo->query("select content from danmulist where vid = $vid");
 		$arr = [];
 		foreach($data as $val){
 			$arr[] = $val['content'];
