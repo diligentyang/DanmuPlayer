@@ -25,7 +25,8 @@ class Danmu extends \systems\DYController
     {
 	   $callback = $_GET['callback'];
 	   $model = $this->model("DanmuModel");
-	   $arr = $model->getAllvideo();
-	   echo $callback.'('.json_encode($arr).')';
+	   $arr1 = $model->getAllvideo(1,8);
+	   $arr2 = $model->getAllvideo(2,8);
+	   echo $callback.'('.json_encode([$arr1,$arr2]).')';
     }
 }
