@@ -47,13 +47,13 @@ Class DanmuModel extends \systems\DYModel
 	
 	function getRankList($limit){
 		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by danmunum desc,id desc limit $limit; ");
+		$data = $pdo->query("select * from video order by num desc,id desc limit $limit; ");
 		return $data;
 	}
 	
 	function updateVideoNum($id){
 		$pdo = \lib\Factory::GetMySQL();
-		$res = $pdo->query("UPDATE `video` SET num=num+1 WHERE id=1;");
+		$res = $pdo->query("UPDATE `video` SET num=num+1 WHERE id=$id;");
 		if($res){
 			return true;
 		}else{
