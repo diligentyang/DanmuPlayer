@@ -51,4 +51,14 @@ Class DanmuModel extends \systems\DYModel
 		return $data;
 	}
 	
+	function updateVideoNum($id){
+		$pdo = \lib\Factory::GetMySQL();
+		$res = $pdo->query("UPDATE `video` SET num=num+1 WHERE id=1;");
+		if($res){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }

@@ -30,4 +30,16 @@ class Danmu extends \systems\DYController
 	   $arr3 = $model->getRankList(8);
 	   echo $callback.'('.json_encode([$arr1,$arr2,$arr3]).')';
     }
+	
+	function actionShowvideo()
+	{
+		$callback = $_GET['callback'];
+		$id = $_GET['id'];
+		$id=1;
+		$model = $this->model("DanmuModel");
+		$model->updateVideoNum($id);
+		
+		echo $callback.'('.json_encode([$id]).')';
+		
+	}
 }

@@ -127,6 +127,7 @@ class Pdo implements IDataBase
             }
             $strSql = substr($strSql, 1);
             $strSql = "UPDATE `$table` SET $strSql WHERE $where";
+			echo $strSql;exit();
             $result = $this->db->exec($strSql);
             $this->getPDOError();
             return $result;
