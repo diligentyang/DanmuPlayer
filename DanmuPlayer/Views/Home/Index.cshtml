@@ -80,9 +80,9 @@
                     output3 += '<ul>';
                     for (var i = 0; i < data[2].length; i++) {
                         if (i < 3) {
-                            output3 += '<li><span style="background:#f25d8e;"> ' + i + '</span><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + '</a></li>';
+                            output3 += '<li><span style="background:#f25d8e;"> ' + (i+1) + '</span><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + '</a></li>';
                         } else {
-                            output3 += '<li><span> ' + i + '</span><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + '</a></li>';
+                            output3 += '<li><span> ' + (i+1) + '</span><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + '</a></li>';
                         }
                     }
                     output3 += '</ul>';
