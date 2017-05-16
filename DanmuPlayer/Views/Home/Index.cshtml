@@ -39,6 +39,7 @@
             </div>
         </div>
         <div class="item_content_right">
+            <!--
             <ul>
                 <li><span style="background:#f25d8e;">1</span>傅人传 火影忍者时代</li>
                 <li><span style="background:#f25d8e;">2</span>傅人传 火影忍者时代</li>
@@ -49,6 +50,7 @@
                 <li><span>7</span>纱雾：不出不出不出，说了不出就不出！</li>
                 <li><span>8</span>纱雾：不出不出不出，说了不出就不出！</li>
             </ul>
+             -->
         </div>
     </div>
 </div>
@@ -73,6 +75,20 @@
                     output2 += '<div class="item_content_video"><img src="' + data[1][i].picpath + '" /><ul><li><a href="/Home/ShowVideo?id=' + data[1][i].id + '">' + data[1][i].title + '</a></li><li style="color:#99a2aa;"><span class="item_content_play">' + data[1][i].num + '</span><span class="item_content_dm">' + data[1][i].danmunum + '</span></li></ul></div>';
                 }
                 $("#V2").html(output2);
+                var output3 = "";
+                if (data[2].length > 3) {
+                    output3 += '<ul>';
+                    for (var i = 0; i < data[2].length; i++) {
+                        if (i < 3) {
+                            output3 += '<li><span style="background:#f25d8e;"> ' + i + '</span>'+data[2][i].title +'</li>';
+                        } else {
+                            output3 += '<li><span> ' + i + '</span>' + data[2][i].title + '</li>';
+                        }
+                    }
+                    output3 += '</ul>';
+                }
+                $(".item_content_right").html(output3);
+                
             }
         });
     })
