@@ -148,31 +148,35 @@
             $(this).addClass("video_menu_active").siblings().removeClass("video_menu_active");
             $(".video_com_con_detail").eq(num).show().siblings().hide();
         })
-        $.ajax({
-            url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/showvideo?id=" + getUrlParam('id'),
-            type: "get",
-            async: false,
-            data: {},
-            dataType: "jsonp",
-            error: function () {
-                alert('Error loading XML document');
-            },
-            success: function (data, status) {//如果调用php成功 
-                $("#Vtitle").html(data[0][0].title);
-                $("#num").html(data[0][0].num);
-                $("#danmunum").html(data[0][0].danmunum);
-                //视频路径 data[0][0].videopath
-            }
-        });
+        
 
     })
+    var videopath;
+    $.ajax({
+        url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/showvideo?id=" + getUrlParam('id'),
+        type: "get",
+        async: false,
+        data: {},
+        dataType: "json",
+        //dataType: "jsonp",
+        error: function () {
+            alert('Error loading XML document');
+        },
+        success: function (data, status) {//如果调用php成功 
+            $("#Vtitle").html(data[0][0].title);
+            $("#num").html(data[0][0].num);
+            $("#danmunum").html(data[0][0].danmunum);
+            //视频路径 data[0][0].videopath
+            videopath = data[0][0].videopath;
+        }
+    });
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
         var r = window.location.search.substr(1).match(reg); //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
     $("#danmup").DanmuPlayer({
-        src: "/video/level5.mp4",
+        src: videopath,
         height: "480px", //区域的高度
         width: "700px", //区域的宽度
         urlToGetDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/query/" + getUrlParam('id'),
