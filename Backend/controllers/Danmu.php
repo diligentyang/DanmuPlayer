@@ -35,11 +35,11 @@ class Danmu extends \systems\DYController
 	{
 		$callback = $_GET['callback'];
 		$id = $_GET['id'];
-		$id=1;
 		$model = $this->model("DanmuModel");
 		$model->updateVideoNum($id);
+		$arr1 = $model->getVideoDetailById($id);
 		
-		echo $callback.'('.json_encode([$id]).')';
+		echo $callback.'('.json_encode([$arr1]).')';
 		
 	}
 }
