@@ -6,10 +6,10 @@
 <!--<h2>@ViewBag.video_id</h2>-->
 <div class="show_video_content">
     <div class="video_head">
-        <h2 style="color:#525659;font-size:16px;">[系列] 大神出系列</h2>
+        <h2 style="color:#525659;font-size:16px;" id="Vtitle">[系列] 大神出系列</h2>
         <ul>
-            <li><span style="background-position:-659px -210px;"></span><div>11.6万</div></li>
-            <li><span style="background-position:-659px -275px;"></span><div>1091</div></li>
+            <li><span style="background-position:-659px -210px;"></span><div id="num">11.6万</div></li>
+            <li><span style="background-position:-659px -275px;"></span><div id="danmunum">1091</div></li>
             <li><span style="background-position:-659px -338px;"></span><div>11.6万</div></li>
             <li><span style="background-position:-659px -403px;"></span><div>11.6万</div></li>
         </ul>
@@ -148,6 +148,21 @@
             $(this).addClass("video_menu_active").siblings().removeClass("video_menu_active");
             $(".video_com_con_detail").eq(num).show().siblings().hide();
         })
+        $.ajax({
+            url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/showvideo?id=" + getUrlParam('id'),
+            type: "get",
+            data: {},
+            dataType: "jsonp",
+            error: function () {
+                alert('Error loading XML document');
+            },
+            success: function (data, status) {//如果调用php成功 
+                $("#Vtitle").html(data[0][0].title);
+                $("#num").html(data[0][0].num);
+                $("#danmunum").html(data[0][0].danmunum);
+            }
+        });
+
     })
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
