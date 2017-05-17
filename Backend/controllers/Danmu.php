@@ -41,14 +41,8 @@ class Danmu extends \systems\DYController
 		$model->updateVideoNum($id);//更新浏览量
 		$arr1 = $model->getVideoDetailById($id);//获取video信息
 		$arr2 = $model->getDanmuListById($id);//获取弹幕列表
-		echo json_encode([$arr1]);
+		echo json_encode([$arr1,$arr2]);
 		//echo $callback.'('.json_encode([$arr1]).')';
 		
-	}
-	
-	function actionTest(){
-		$str='{ "text":"666666","color":"#0f0402","size":"1","position":"0","time":341}';
-		$a=(json_decode($str));
-		var_dump(date("H:i:s",round(($a->time)/10)));
 	}
 }

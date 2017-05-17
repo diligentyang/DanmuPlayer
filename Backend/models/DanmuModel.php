@@ -72,7 +72,7 @@ Class DanmuModel extends \systems\DYModel
 	
 	function getDanmuListById($id){
 		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select title,videopath,picpath,A.addtime,num,count(danmulist.id) as danmunum from (select * from video where id = $id )as A left JOIN danmulist on A.id=danmulist.vid GROUP BY A.id;");
+		$data = $pdo->query("select * from danmulist where vid = $id;");
 		return $data;
 	}
 	
