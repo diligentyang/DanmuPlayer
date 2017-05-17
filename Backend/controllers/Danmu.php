@@ -31,15 +31,18 @@ class Danmu extends \systems\DYController
 	   echo $callback.'('.json_encode([$arr1,$arr2,$arr3]).')';
     }
 	
+	//showvideo界面
 	function actionShowvideo()
 	{
-		$callback = $_GET['callback'];
+		header('Access-Control-Allow-Origin:*');  
+		//$callback = $_GET['callback'];
 		$id = $_GET['id'];
 		$model = $this->model("DanmuModel");
-		$model->updateVideoNum($id);
-		$arr1 = $model->getVideoDetailById($id);
+		$model->updateVideoNum($id);//更新浏览量
+		$arr1 = $model->getVideoDetailById($id);//获取video信息
 		
-		echo $callback.'('.json_encode([$arr1]).')';
+		echo json_encode([$arr1]);
+		//echo $callback.'('.json_encode([$arr1]).')';
 		
 	}
 }
