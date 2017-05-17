@@ -153,6 +153,9 @@ table, tr, td, th {
 .video_com_con_detail table tr,td{
     padding:3px;height:18px;
 }
+#danmulist td {
+    background:red;width:30px;
+}
 .video_com_con_detail tr:not(:first-child):hover{
     background:#b8c0cc;
 }
