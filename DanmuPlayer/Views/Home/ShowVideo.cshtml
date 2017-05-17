@@ -76,57 +76,19 @@
                     </div>
                 </div>
                 <div class="video_com_con_detail">
-                    <table>
+                    <table id="danmulist">
                         <tr>
                             <th>时间</th>
                             <th width="150px">内容</th>
                             <th>日期</th>
                         </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>99999999999</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>99999999999</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>99999999999</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>99999999999</td>
-                            <td>2017-04-30</td>
-                        </tr>
+                        <!--
                         <tr>
                             <td>02:30</td>
                             <td>弹幕弹幕弹幕弹幕666</td>
                             <td>2017-04-30</td>
                         </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>弹幕弹幕弹幕弹幕666</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>弹幕弹幕弹幕弹幕666</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>弹幕弹幕弹幕弹幕666</td>
-                            <td>2017-04-30</td>
-                        </tr>
-                        <tr>
-                            <td>02:30</td>
-                            <td>弹幕弹幕弹幕弹幕666</td>
-                            <td>2017-04-30</td>
-                        </tr>
+                         -->
                     </table>
 
                 </div>
@@ -168,7 +130,12 @@
             $("#danmunum").html(data[0][0].danmunum);
             //视频路径 data[0][0].videopath
             videopath = data[0][0].videopath;
-            $(".spinner").css("display","none");
+            $(".spinner").css("display", "none");
+            var danmulist = "";
+            for (var i = 0; i < data[1].length;i++){
+                danmulist += '<tr><td>'+data[1][i].vddtime+'</td><td>'+JSON.parse(data[1][i].content).text+'</td><td>'+data[1][i].addtime.substring(5,10) +'</td></tr>';
+            }
+            $("#danmulist").append(danmulist);
         }
     });
     function getUrlParam(name) {
