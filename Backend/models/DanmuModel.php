@@ -14,11 +14,14 @@ Class DanmuModel extends \systems\DYModel
     {
         $pdo = \lib\Factory::GetMySQL();
 		date_default_timezone_set('PRC');
+		$v=json_decode($content);
+		$vddtime = date("H:i:s",57600+round(+($v->time)/10));
 		$addtime = date("Y-m-d H:i:s");
 		$arr = [
 			'vid'=>$vid,
 			'content'=>$content,
-			'addtime'=>$addtime
+			'addtime'=>$addtime,
+			'vddtime'=>$vddtime
 		];
 		$res = $pdo->insert("danmulist",$arr);
     }
@@ -62,6 +65,12 @@ Class DanmuModel extends \systems\DYModel
 	}
 	
 	function getVideoDetailById($id){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("select title,videopath,picpath,A.addtime,num,count(danmulist.id) as danmunum from (select * from video where id = $id )as A left JOIN danmulist on A.id=danmulist.vid GROUP BY A.id;");
+		return $data;
+	}
+	
+	function getDanmuListById($id){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select title,videopath,picpath,A.addtime,num,count(danmulist.id) as danmunum from (select * from video where id = $id )as A left JOIN danmulist on A.id=danmulist.vid GROUP BY A.id;");
 		return $data;
