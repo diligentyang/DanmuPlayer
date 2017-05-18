@@ -148,7 +148,10 @@ table, tr, td, th {
 }
 
 .video_com_con_detail{
-    height:480px;overflow-y:scroll;font-size:12px;cursor:pointer;
+    height:480px;font-size:12px;cursor:pointer;
+}
+#danmulist{
+    height:480px;
 }
 #danmulist li{
     height:24px;line-height:24px;padding-left:10px;font-size:12px;color:#99a2aa;

@@ -75,10 +75,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="video_com_con_detail">
+                <div class="video_com_con_detail" >
                     <ul id="danmulist">
                         <li><span class="vddtime">时间</span><span class="danmucont">内容</span><span class="addtime">时间</span></li>
-
                     </ul>
 
                 </div>
@@ -89,13 +88,12 @@
 
 </div>
 
-
-
+<script src="/Scripts/jquery.jscrollbar.js"></script>
+<link href="/Content/jquery.jscrollbar.css" rel="stylesheet">
 
 <script>
+    
     $(document).ready(function () {
-        
-
         $(".video_com_con_detail").eq(0).show().siblings().hide();
         $(".video_com_menu_item").eq(0).addClass("video_menu_active");
         $(".video_com_menu_item").click(function () {
@@ -128,7 +126,8 @@
             for (var i = 0; i < data[1].length;i++){
                 danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
             }
-            $("#danmulist").append(danmulist);
+            $('#danmulist').append(danmulist);
+            $('#danmulist').jscrollbar({ width: 6, position: 'inner' });
         }
     });
     function getUrlParam(name) {
@@ -136,7 +135,9 @@
         var r = window.location.search.substr(1).match(reg); //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
+    
     if (videopath) {
+       
         $("#danmup").DanmuPlayer({
             src: videopath,
             height: "480px", //区域的高度

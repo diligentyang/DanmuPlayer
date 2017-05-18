@@ -212,6 +212,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\colpick.css" />
     <Content Include="Content\former.css" />
+    <Content Include="Content\jquery.jscrollbar.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\scojs.css" />
     <Content Include="favicon.ico" />
@@ -236,8 +237,10 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.1.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.danmu.js" />
+    <Content Include="Scripts\jquery.jscrollbar.js" />
     <Content Include="Scripts\jquery.shCircleLoader.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
