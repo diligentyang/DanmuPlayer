@@ -154,7 +154,7 @@ table, tr, td, th {
     height:480px;
 }
 #danmulist li{
-    height:24px;line-height:24px;padding-left:10px;font-size:12px;color:#99a2aa;
+    height:26px;line-height:26px;padding-left:10px;font-size:12px;color:#99a2aa;
 }
 #danmulist li:hover{
     color:dodgerblue;
