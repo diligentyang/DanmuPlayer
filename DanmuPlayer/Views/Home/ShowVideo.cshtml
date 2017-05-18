@@ -34,7 +34,8 @@
                 <div class="video_com_menu_item">弹幕列表</div>
             </div>
             <div class="video_com_con">
-                <div class="video_com_con_detail">
+                <div class="video_com_con_detail" id="tuijianlist">
+                    <!--
                     <div class="video_con_tj">
                         <div class="video_con_pic">
                             <img src="~/images/pic1.jpg" />
@@ -48,32 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="video_con_tj">
-                        <div class="video_con_pic">
-                            <img src="~/images/pic1.jpg" />
-                        </div>
-                        <div class="video_con_title">
-                            <div class="video_con_title_con">
-                                <a href="#">【西游记】唐僧取经 </a>
-                            </div>
-                            <div class="video_con_title_d">
-                                <span class="video_con_play">44.3万</span><span class="video_con_dm">44.3万</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video_con_tj">
-                        <div class="video_con_pic">
-                            <img src="~/images/pic1.jpg" />
-                        </div>
-                        <div class="video_con_title">
-                            <div class="video_con_title_con">
-                                <a href="#">【西游记】唐僧取经 </a>
-                            </div>
-                            <div class="video_con_title_d">
-                                <span class="video_con_play">44.3万</span><span class="video_con_dm">44.3万</span>
-                            </div>
-                        </div>
-                    </div>
+                        -->
                 </div>
                 <div class="video_com_con_detail" >
                     <ul id="danmulist">
@@ -123,11 +99,17 @@
             videopath = data[0][0].videopath;
             $(".spinner").css("display", "none");
             var danmulist = "";
-            for (var i = 0; i < data[1].length;i++){
-                danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
+            if (data[1].length > 0) {
+                for (var i = 0; i < data[1].length; i++) {
+                    danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
+                }
             }
             $('#danmulist').append(danmulist);
             $('#danmulist').jscrollbar({ width: 6, position: 'inner' });
+            for (var i = 0; i < data[2].length; i++) {
+                $("#tuijianlist").append('<div class="video_con_tj"><div class="video_con_pic"><img src="' + data[2][i].picpath + '" /></div><div class="video_con_title"><div class="video_con_title_con"><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + ' </a></div><div class="video_con_title_d"><span class="video_con_play">' + data[2][i].num + '</span><span class="video_con_dm">' + data[2][i].danmunum + '</span></div></div></div>');
+            }
+            //console.log(data[2]);
         }
     });
     function getUrlParam(name) {
@@ -136,8 +118,7 @@
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
     
-    if (videopath) {
-       
+    if (videopath) {     
         $("#danmup").DanmuPlayer({
             src: videopath,
             height: "480px", //区域的高度
