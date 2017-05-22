@@ -116,6 +116,9 @@
                 theme: "dark-thin",
                 mouseWheelPixels: 200,
                 autoHideScrollbar: true,
+                callbacks: {
+                    onTotalScroll:pullDanmu,
+                }
             });
             for (var i = 0; i < data[2].length; i++) {
                 $("#tuijianlist").append('<div class="video_con_tj"><div class="video_con_pic"><img src="' + data[2][i].picpath + '" /></div><div class="video_con_title"><div class="video_con_title_con"><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + ' </a></div><div class="video_con_title_d"><span class="video_con_play">' + data[2][i].num + '</span><span class="video_con_dm">' + data[2][i].danmunum + '</span></div></div></div>');
@@ -127,6 +130,9 @@
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
         var r = window.location.search.substr(1).match(reg); //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    function pullDanmu() {
+        
     }
     
     if (videopath) {     

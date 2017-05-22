@@ -224,6 +224,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\icons_b.png" />
     <Content Include="images\pic1.jpg" />
+    <Content Include="images\timg.gif" />
     <Content Include="images\top.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
