@@ -114,12 +114,13 @@
                     scrollSpeed: 20,
                     scrollAmount: 200,
                 },
+                autoDraggerLength:true,
                 theme: "dark-thin",
                 mouseWheelPixels: 200,
                 autoHideScrollbar: true,
                 callbacks: {
                     onTotalScroll: function () {
-                        pullDanmu(danmucount);
+                        pullDanmu(this, danmucount);//传入this,防止报错，mCustomScrollbar不存在
                     },
                 }
             });
@@ -135,7 +136,7 @@
         var r = window.location.search.substr(1).match(reg); //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
-    function pullDanmu(danmucount) {
+    function pullDanmu(el,danmucount) {
         var num = $("#danmulist .mCSB_container li").length - 2;
         if (num < danmucount) {
             $.ajax({
@@ -154,10 +155,17 @@
                         }
                         $("#loadD").remove();
                         $("#danmulist .mCSB_container").append(danmulist + '<li id="loadD"><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
-                        $("#danmulist").mCustomScrollbar("update");
-                    } 
+                        el.mCustomScrollbar("update");
+                    }
                 }
             });
+        } else if (num == danmucount) {
+            $("#loadD").remove();
+            $("#danmulist .mCSB_container").append('<li id="loadD" ><span class="loadDanmu">到底啦！</span></li>');
+            $("#danmulist .mCSB_container").append('<li style="display:none;" ><span class="loadDanmu"></span></li>');
+            el.mCustomScrollbar("update");
+        } else {
+            
         }
         
     }
