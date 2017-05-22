@@ -163,7 +163,7 @@ table, tr, td, th {
     width:54px;display: inline-block;height:24px;overflow:hidden;
 }
 .danmucont{
-    width:145px;display: inline-block;height:24px;overflow:hidden; text-overflow:ellipsis;padding-right:10px;
+    width:140px;display: inline-block;height:24px;overflow:hidden; text-overflow:ellipsis;padding-right:10px;
 }
 .addtime {
     display: inline-block;height:24px;overflow:hidden;

@@ -213,7 +213,9 @@
     <Content Include="Content\colpick.css" />
     <Content Include="Content\former.css" />
     <Content Include="Content\jquery.jscrollbar.css" />
+    <Content Include="Content\jquery.mCustomScrollbar.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\mCSB_buttons.png" />
     <Content Include="Content\scojs.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -241,6 +243,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.danmu.js" />
     <Content Include="Scripts\jquery.jscrollbar.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.js" />
     <Content Include="Scripts\jquery.shCircleLoader.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
