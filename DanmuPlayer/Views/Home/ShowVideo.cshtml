@@ -106,24 +106,41 @@
                     danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
                 }
             }
-            $('#danmulist').append(danmulist + '<li id="loadD"><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
-            $('#danmulist').mCustomScrollbar({
-                scrollButtons: {
-                    enable: true,
-                    scrollType: "pixels",
-                    scrollSpeed: 20,
-                    scrollAmount: 200,
-                },
-                autoDraggerLength:true,
-                theme: "dark-thin",
-                mouseWheelPixels: 200,
-                autoHideScrollbar: true,
-                callbacks: {
-                    onTotalScroll: function () {
-                        pullDanmu(this, danmucount);//传入this,防止报错，mCustomScrollbar不存在
+            if (data[1].length > 29) {
+                $('#danmulist').append(danmulist + '<li id="loadD"><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
+                $('#danmulist').mCustomScrollbar({
+                    scrollButtons: {
+                        enable: true,
+                        scrollType: "pixels",
+                        scrollSpeed: 20,
+                        scrollAmount: 200,
                     },
-                }
-            });
+                    autoDraggerLength: true,
+                    theme: "dark-thin",
+                    mouseWheelPixels: 200,
+                    autoHideScrollbar: true,
+                    callbacks: {
+                        onTotalScroll: function () {
+                            pullDanmu(this, danmucount);//传入this,防止报错，mCustomScrollbar不存在
+                        },
+                    }
+                });
+            } else {
+                $('#danmulist').append(danmulist);
+                $('#danmulist').mCustomScrollbar({
+                    scrollButtons: {
+                        enable: true,
+                        scrollType: "pixels",
+                        scrollSpeed: 20,
+                        scrollAmount: 200,
+                    },
+                    autoDraggerLength: true,
+                    theme: "dark-thin",
+                    mouseWheelPixels: 200,
+                    autoHideScrollbar: true,
+                });
+            }
+            
             for (var i = 0; i < data[2].length; i++) {
                 $("#tuijianlist").append('<div class="video_con_tj"><div class="video_con_pic"><img src="' + data[2][i].picpath + '" /></div><div class="video_con_title"><div class="video_con_title_con"><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + ' </a></div><div class="video_con_title_d"><span class="video_con_play">' + data[2][i].num + '</span><span class="video_con_dm">' + data[2][i].danmunum + '</span></div></div></div>');
             }
