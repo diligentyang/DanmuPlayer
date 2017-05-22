@@ -76,6 +76,12 @@ Class DanmuModel extends \systems\DYModel
 		return $data;
 	}
 	
+	function getDanmuCount($id){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("select count(id)as danmucount from danmulist where vid = $id;");
+		return $data;
+	}
+	
 	function getShowTuijian($limit){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
