@@ -93,6 +93,7 @@
             alert('Error loading XML document');
         },
         success: function (data, status) {//如果调用php成功 
+            var danmucount = data[3][0].danmucount;
             $("#Vtitle").html(data[0][0].title);
             $("#num").html(data[0][0].num);
             $("#danmunum").html(data[0][0].danmunum);
@@ -105,7 +106,7 @@
                     danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
                 }
             }
-            $('#danmulist').append(danmulist + '<li><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
+            $('#danmulist').append(danmulist + '<li id="loadD"><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
             $('#danmulist').mCustomScrollbar({
                 scrollButtons: {
                     enable: true,
@@ -117,12 +118,15 @@
                 mouseWheelPixels: 200,
                 autoHideScrollbar: true,
                 callbacks: {
-                    onTotalScroll:pullDanmu,
+                    onTotalScroll: function () {
+                        pullDanmu(danmucount);
+                    },
                 }
             });
             for (var i = 0; i < data[2].length; i++) {
                 $("#tuijianlist").append('<div class="video_con_tj"><div class="video_con_pic"><img src="' + data[2][i].picpath + '" /></div><div class="video_con_title"><div class="video_con_title_con"><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + ' </a></div><div class="video_con_title_d"><span class="video_con_play">' + data[2][i].num + '</span><span class="video_con_dm">' + data[2][i].danmunum + '</span></div></div></div>');
             }
+
             //console.log(data[2]);
         }
     });
@@ -131,20 +135,31 @@
         var r = window.location.search.substr(1).match(reg); //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
-    function pullDanmu() {
+    function pullDanmu(danmucount) {
         var num = $("#danmulist .mCSB_container li").length - 2;
-        $.ajax({
-            url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/getlimitdanmu?id=" + getUrlParam('id'),
-            type: "get",
-            data: {num:num},
-            dataType: "jsonp",
-            error: function () {
-                alert('Error loading XML document');
-            },
-            success: function (data, status) {//如果调用php成功 
-                console.log(data);
-            }
-        });
+        if (num < danmucount) {
+            $.ajax({
+                url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/getlimitdanmu?id=" + getUrlParam('id'),
+                type: "get",
+                data: { num: num },
+                dataType: "jsonp",
+                error: function () {
+                    alert('Error loading XML document');
+                },
+                success: function (data, status) {//如果调用php成功 
+                    var danmulist = "";
+                    if (data[0].length > 0) {
+                        for (var i = 0; i < data[0].length; i++) {
+                            danmulist += '<li><span class="vddtime">' + data[0][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[0][i].content).text + '</span><span class="addtime">' + data[0][i].addtime.substring(5, 10) + '</span></li>';
+                        }
+                        $("#loadD").remove();
+                        $("#danmulist .mCSB_container").append(danmulist + '<li id="loadD"><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
+                        $("#danmulist").mCustomScrollbar("update");
+                    } 
+                }
+            });
+        }
+        
     }
     
     if (videopath) {     
