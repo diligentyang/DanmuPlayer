@@ -46,4 +46,16 @@ class Danmu extends \systems\DYController
 		//echo $callback.'('.json_encode([$arr1]).')';
 		
 	}
+	
+	//获取弹幕list，每次加载15个
+	function actionGetlimitdanmu()
+	{
+		$callback = $_GET['callback'];
+		$id = $_GET['id'];
+		$start = $_GET['num'];
+		$limit = 15;
+		$model = $this->model("DanmuModel");
+		$arr = $model->getLimitDanmuListById($id,$start,$limit);
+		echo $callback.'('.json_encode([$arr]).')';
+	}
 }

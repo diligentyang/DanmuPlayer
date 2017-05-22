@@ -82,4 +82,10 @@ Class DanmuModel extends \systems\DYModel
 		return $data;
 	}
 	
+	function getLimitDanmuListById($id,$start,$limit){
+		$pdo = \lib\Factory::GetMySQL();
+		$data = $pdo->query("select * from danmulist where vid = $id order by vddtime limit $start,$limit;");
+		return $data;
+	}
+	
 }
