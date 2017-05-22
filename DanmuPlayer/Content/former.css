@@ -168,6 +168,12 @@ table, tr, td, th {
 .addtime {
     display: inline-block;height:24px;overflow:hidden;
 }
+.loadDanmu {
+    height:24px;width:250px;display:inline-block;text-align:center;
+}
+.loadDanmu img {
+    height:24px;width:24px;
+}
 .video_con_tj{
     height:80px;padding-left:15px;padding-top:10px;font-size:12px;
 }

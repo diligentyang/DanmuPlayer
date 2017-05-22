@@ -53,7 +53,7 @@
                 </div>
                 <div class="video_com_con_detail" >
                     <ul id="danmulist">
-                        <li><span class="vddtime">时间</span><span class="danmucont">内容</span><span class="addtime">时间</span></li>
+                        <li><span class="vddtime">时间</span><span class="danmucont">内容</span><span class="addtime">时间</span></li>                       
                     </ul>
 
                 </div>
@@ -105,7 +105,7 @@
                     danmulist += '<li><span class="vddtime">' + data[1][i].vddtime + '</span><span class="danmucont">' + JSON.parse(data[1][i].content).text + '</span><span class="addtime">' + data[1][i].addtime.substring(5, 10) + '</span></li>';
                 }
             }
-            $('#danmulist').append(danmulist);
+            $('#danmulist').append(danmulist + '<li><span class="loadDanmu"><img src="/images/timg.gif" /></span></li>');
             $('#danmulist').mCustomScrollbar({
                 scrollButtons: {
                     enable: true,
