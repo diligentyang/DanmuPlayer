@@ -106,7 +106,17 @@
                 }
             }
             $('#danmulist').append(danmulist);
-            $('#danmulist').mCustomScrollbar();
+            $('#danmulist').mCustomScrollbar({
+                scrollButtons: {
+                    enable: true,
+                    scrollType: "pixels",
+                    scrollSpeed: 20,
+                    scrollAmount: 200,
+                },
+                theme: "dark-thin",
+                mouseWheelPixels: 200,
+                autoHideScrollbar: true,
+            });
             for (var i = 0; i < data[2].length; i++) {
                 $("#tuijianlist").append('<div class="video_con_tj"><div class="video_con_pic"><img src="' + data[2][i].picpath + '" /></div><div class="video_con_title"><div class="video_con_title_con"><a href="/Home/ShowVideo?id=' + data[2][i].id + '">' + data[2][i].title + ' </a></div><div class="video_con_title_d"><span class="video_con_play">' + data[2][i].num + '</span><span class="video_con_dm">' + data[2][i].danmunum + '</span></div></div></div>');
             }
