@@ -62,6 +62,7 @@ class Danmu extends \systems\DYController
 	
 	function actionTestMem(){
 		$m = \lib\Factory::getMemcache();
-		$m->setItem("ysy","333333",120);
+		//$m->setItem("ysy","33333",120);
+		var_dump($m->getItem("ysy"));
 	}
 }

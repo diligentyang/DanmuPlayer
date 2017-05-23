@@ -31,7 +31,7 @@ class Memcache
 	* $value string 值
 	* $time int 秒，有效期
 	*/
-	public function setItem($key,$value,$time = 300){
+	public function addItem($key,$value,$time = 300){
 		self::$_m->add($key,$value,$time);
 	}
 	
@@ -45,5 +45,36 @@ class Memcache
 	public function repItem($key, $value, $time = 300){
 		self::$_m->replace($key, $value, $time);
 	}
+	
+	/**
+	* 当数据不存在的时候，新建，存在的时候，覆盖
+	*
+	* $key string 键
+	* $value string 值
+	* $time int 秒，有效期
+	*/
+	public function setItem($key, $value, $time = 300){
+		self::$_m->set($key, $value, $time);
+	}
+	
+	/**
+	* 删除
+	*
+	* $key string 键
+	*/
+	public function delItem($key){
+		self::$_m->delete($key);
+	}
+	
+	/**
+	* 取值
+	*
+	* $key string 键
+	*/
+	public function getItem($key){
+		return self::$_m->get($key);
+	}
+	
+	
 	
 }
