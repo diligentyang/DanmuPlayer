@@ -8,11 +8,12 @@ class Memcache
 	private static $_cache = null;
 	
 	private function __construct($ip,$port){
-		self::$_m = new Memcache();
+		self::$_m = new \Memcache();
 		self::$_m->connect($ip,$port); 
 	}
 	
 	public static function getInstance($ip,$port){
+		
 		if(!self::$_cache){
             self::$_cache = new self($ip,$port);
         }

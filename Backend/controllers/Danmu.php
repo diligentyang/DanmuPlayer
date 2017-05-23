@@ -59,4 +59,9 @@ class Danmu extends \systems\DYController
 		$arr = $model->getLimitDanmuListById($id,$start,$limit);
 		echo $callback.'('.json_encode([$arr]).')';
 	}
+	
+	function actionTestMem(){
+		$m = \lib\Factory::getMemcache();
+		$m->setItem("ysy","333333",120);
+	}
 }

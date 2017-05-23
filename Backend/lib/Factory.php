@@ -30,4 +30,9 @@ class Factory
             return Register::get("mysql");
         }
     }
+	
+	static function getMemcache(){
+		
+		return \lib\NoSql\Memcache::getInstance("127.0.0.1",11211);
+	}
 }
