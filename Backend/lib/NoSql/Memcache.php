@@ -25,6 +25,8 @@ class Memcache
 	}
 	
 	/**
+	* 添加
+	*
 	* $key string 键
 	* $value string 值
 	* $time int 秒，有效期
@@ -33,5 +35,15 @@ class Memcache
 		self::$_m->add($key,$value,$time);
 	}
 	
+	/**
+	* 修改
+	*
+	* $key string 键
+	* $value string 值
+	* $time int 秒，有效期
+	*/
+	public function repItem($key, $value, $time = 300){
+		self::$_m->replace($key, $value, $time);
+	}
 	
 }
