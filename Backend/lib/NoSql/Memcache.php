@@ -32,7 +32,7 @@ class Memcache
 	* $time int 秒，有效期
 	*/
 	public function addItem($key,$value,$time = 300){
-		self::$_m->add($key,$value,$time);
+		self::$_m->add($key,$value,0,$time);
 	}
 	
 	/**
@@ -43,7 +43,7 @@ class Memcache
 	* $time int 秒，有效期
 	*/
 	public function repItem($key, $value, $time = 300){
-		self::$_m->replace($key, $value, $time);
+		self::$_m->replace($key, $value,0,$time);
 	}
 	
 	/**
@@ -54,7 +54,7 @@ class Memcache
 	* $time int 秒，有效期
 	*/
 	public function setItem($key, $value, $time = 300){
-		self::$_m->set($key, $value, $time);
+		self::$_m->set($key, $value,0, $time);
 	}
 	
 	/**
@@ -73,6 +73,12 @@ class Memcache
 	*/
 	public function getItem($key){
 		return self::$_m->get($key);
+	}
+	
+	public function showStatus(){
+		echo "<pre>";
+		print_r(self::$_m->getStats());
+		echo "</pre>";
 	}
 	
 	
