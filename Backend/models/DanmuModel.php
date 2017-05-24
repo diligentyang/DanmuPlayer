@@ -47,11 +47,11 @@ Class DanmuModel extends \systems\DYModel
 	//得到所有的视频
 	function getAllvideo($cid,$limit){
 		$m = \lib\Factory::getMemcache();
-		$data=unserialize($m->getItem("Allvideo_cid[$cid]_limit[$limit]"));
+		$data=json_decode($m->getItem("Allvideo_cid[$cid]_limit[$limit]"));
 		if(!$data){
 			$pdo = \lib\Factory::GetMySQL();
 			$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video where cid=$cid ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
-			$m->setItem("Allvideo_cid[$cid]_limit[$limit]",serialize($data),300);
+			$m->setItem("Allvideo_cid[$cid]_limit[$limit]",json_encode($data),300);
 		}
 		return $data;
 	}
@@ -59,11 +59,11 @@ Class DanmuModel extends \systems\DYModel
 	//获取排行榜
 	function getRankList($limit){
 		$m = \lib\Factory::getMemcache();
-		$data=unserialize($m->getItem("Former_ranklist"));
+		$data=json_decode($m->getItem("Former_ranklist"));
 		if(!$data){	
 			$pdo = \lib\Factory::GetMySQL();
 			$data = $pdo->query("select * from video order by num desc,id desc limit $limit; ");
-			$m->setItem("Former_ranklist",serialize($data),300);
+			$m->setItem("Former_ranklist",json_encode($data),300);
 		}
 		return $data;
 	}
@@ -102,8 +102,13 @@ Class DanmuModel extends \systems\DYModel
 	
 	//右侧推荐
 	function getShowTuijian($limit){
-		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
+		$m = \lib\Factory::getMemcache();
+		$data=json_decode($m->getItem("tuijian_limit[$limit]"));
+		if(!$data){	
+			$pdo = \lib\Factory::GetMySQL();
+			$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
+			$m->setItem("tuijian_limit[$limit]",json_encode($data),300);
+		}
 		return $data;
 	}
 	
