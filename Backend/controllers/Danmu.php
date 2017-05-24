@@ -63,9 +63,11 @@ class Danmu extends \systems\DYController
 	/*测试memcache*/
 	function actionTestMem(){
 		$m = \lib\Factory::getMemcache();
-		$m->setItem("wsk","521",60);
+		//$m->setItem("wsk","521",60);
 		//var_dump($m->getItem("wsk1"));
 		//$m->showStatus();
 		//var_dump($m->flushAll());
+		$data=unserialize($m->getItem("Former_ranklist"));
+		var_dump($data);
 	}
 }

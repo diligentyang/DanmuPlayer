@@ -53,8 +53,13 @@ Class DanmuModel extends \systems\DYModel
 	
 	//获取排行榜
 	function getRankList($limit){
-		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select * from video order by num desc,id desc limit $limit; ");
+		$m = \lib\Factory::getMemcache();
+		$data=unserialize($m->getItem("Former_ranklist"));
+		if(!$data){	
+			$pdo = \lib\Factory::GetMySQL();
+			$data = $pdo->query("select * from video order by num desc,id desc limit $limit; ");
+			$m->setItem("Former_ranklist",serialize($data),300);
+		}
 		return $data;
 	}
 	
