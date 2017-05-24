@@ -25,16 +25,24 @@ Class DanmuModel extends \systems\DYModel
 			'vddtime'=>$vddtime
 		];
 		$res = $pdo->insert("danmulist",$arr);
+		$m=\lib\Factory::getMemcache();
+		$m->delItem("select content from danmulist where vid = $vid");
     }
 	
 	//根据视频id查询弹幕
 	function selectByVid($vid){
-		$pdo = \lib\Factory::GetMySQL();
-		$data = $pdo->query("select content from danmulist where vid = $vid");
-		$arr = [];
-		foreach($data as $val){
-			$arr[] = $val['content'];
+		$m = \lib\Factory::getMemcache();
+		$arr = json_decode($m->getItem("select content from danmulist where vid = $vid"));
+		if(!$arr){
+			$pdo = \lib\Factory::GetMySQL();
+			$data = $pdo->query("select content from danmulist where vid = $vid");
+			$arr = [];
+			foreach($data as $val){
+				$arr[] = $val['content'];
+			}
+			$m->setItem("select content from danmulist where vid = $vid",json_encode($arr),300);
 		}
+		
 		return $arr;
 	}
 	/*
