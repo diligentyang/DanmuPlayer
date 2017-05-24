@@ -10,6 +10,7 @@ Class DanmuModel extends \systems\DYModel
 
     }
 
+	//根据视频id添加弹幕
     function stoneByVid($vid,$content)
     {
         $pdo = \lib\Factory::GetMySQL();
@@ -26,6 +27,7 @@ Class DanmuModel extends \systems\DYModel
 		$res = $pdo->insert("danmulist",$arr);
     }
 	
+	//根据视频id查询弹幕
 	function selectByVid($vid){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select content from danmulist where vid = $vid");
@@ -42,18 +44,21 @@ Class DanmuModel extends \systems\DYModel
 		return $data;
 	}
 	*/
+	//得到所有的视频
 	function getAllvideo($cid,$limit){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video where cid=$cid ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
 		return $data;
 	}
 	
+	//获取排行榜
 	function getRankList($limit){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select * from video order by num desc,id desc limit $limit; ");
 		return $data;
 	}
 	
+	//更新视频的浏览量
 	function updateVideoNum($id){
 		$pdo = \lib\Factory::GetMySQL();
 		$res = $pdo->query("UPDATE `video` SET num=num+1 WHERE id=$id;");
@@ -64,30 +69,35 @@ Class DanmuModel extends \systems\DYModel
 		}
 	}
 	
+	//根据id获取视频详情
 	function getVideoDetailById($id){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select title,videopath,picpath,A.addtime,num,count(danmulist.id) as danmunum from (select * from video where id = $id )as A left JOIN danmulist on A.id=danmulist.vid GROUP BY A.id;");
 		return $data;
 	}
 	
+	//获取弹幕list
 	function getDanmuListById($id){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select * from danmulist where vid = $id order by vddtime limit 30;");
 		return $data;
 	}
 	
+	//得到弹幕总条数
 	function getDanmuCount($id){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select count(id)as danmucount from danmulist where vid = $id;");
 		return $data;
 	}
 	
+	//右侧推荐
 	function getShowTuijian($limit){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select A.id,cid,title,picpath,num,count(danmulist.id) as danmunum from (select * from video ORDER BY id desc limit $limit) as A left JOIN danmulist on A.id = danmulist.vid GROUP BY A.id order by id desc; ");
 		return $data;
 	}
 	
+	//得到指定数目的弹幕
 	function getLimitDanmuListById($id,$start,$limit){
 		$pdo = \lib\Factory::GetMySQL();
 		$data = $pdo->query("select * from danmulist where vid = $id order by vddtime limit $start,$limit;");
