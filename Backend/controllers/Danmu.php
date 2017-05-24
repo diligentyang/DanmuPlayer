@@ -60,11 +60,12 @@ class Danmu extends \systems\DYController
 		echo $callback.'('.json_encode([$arr]).')';
 	}
 	
+	/*测试memcache*/
 	function actionTestMem(){
 		$m = \lib\Factory::getMemcache();
-		//$m->setItem("wsk","521",60);
+		$m->setItem("wsk","521",60);
 		//var_dump($m->getItem("wsk1"));
 		//$m->showStatus();
-		var_dump($m->flushAll());
+		//var_dump($m->flushAll());
 	}
 }
