@@ -245,6 +245,7 @@
     <Content Include="Scripts\jquery.danmu.js" />
     <Content Include="Scripts\jquery.jscrollbar.js" />
     <Content Include="Scripts\jquery.mCustomScrollbar.js" />
+    <Content Include="Scripts\Jquery.md5.js" />
     <Content Include="Scripts\jquery.shCircleLoader.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
