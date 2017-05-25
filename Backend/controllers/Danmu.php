@@ -74,16 +74,24 @@ class Danmu extends \systems\DYController
 	
 	/*签名算法*/
 	function actionSign(){
-		echo $this->getSign($_GET);
+		$callback = $_GET['callback'];
+		$arr = $this->getSign($_GET);
+		//var_dump($arr);
+		echo $callback.'('.json_encode([$arr]).')';
 	}
 	
 	/*获取签名*/
 	function getSign($arr){
-		array_shift($arr);//删除数组中的第一个元素即sign
-		ksort($arr);//按键值排序
 		$str="";
-		foreach($arr as $key=>$val){
-			$str.=$key.$val;
+		if(!empty($arr)){
+			//array_shift($arr);//删除数组中的第一个元素即sign
+			ksort($arr);//按键值排序
+			foreach($arr as $key=>$val){
+				if($key!=="callback" && $key!=="sign" && $key!=="_"){
+					$str.=$key.$val;
+				}
+				
+			}
 		}
 		return strtoupper(md5($this->key.$str));
 	}
