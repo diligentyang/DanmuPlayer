@@ -77,7 +77,13 @@ class Danmu extends \systems\DYController
 		$callback = $_GET['callback'];
 		$arr = $this->getSign($_GET);
 		//var_dump($arr);
-		echo $callback.'('.json_encode([$arr]).')';
+		$client = $_GET['sign'];
+		if($arr == strtoupper(md5($client))){
+			echo $callback.'('.json_encode(['code'=>1]).')';
+		}else{
+			echo $callback.'('.json_encode(['code'=>0]).')';
+		}
+		
 	}
 	
 	/*获取签名*/
@@ -85,7 +91,7 @@ class Danmu extends \systems\DYController
 		$str="";
 		if(!empty($arr)){
 			//array_shift($arr);//删除数组中的第一个元素即sign
-			ksort($arr);//按键值排序
+			//ksort($arr);//按键值排序
 			foreach($arr as $key=>$val){
 				if($key!=="callback" && $key!=="sign" && $key!=="_"){
 					$str.=$key.$val;
