@@ -3,6 +3,7 @@ namespace controllers;
 
 class Danmu extends \systems\DYController
 {
+	private $key = "diligentyang";
     public function actionStone()
     {
 		$model = $this->model("DanmuModel");
@@ -69,5 +70,21 @@ class Danmu extends \systems\DYController
 		//var_dump($m->flushAll());
 		$data=unserialize($m->getItem("Former_ranklist"));
 		var_dump($data);
+	}
+	
+	/*签名算法*/
+	function actionSign(){
+		echo $this->getSign($_GET);
+	}
+	
+	/*获取签名*/
+	function getSign($arr){
+		array_shift($arr);//删除数组中的第一个元素即sign
+		ksort($arr);//按键值排序
+		$str="";
+		foreach($arr as $key=>$val){
+			$str.=$key.$val;
+		}
+		return strtoupper(md5($this->key.$str));
 	}
 }
