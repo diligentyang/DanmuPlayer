@@ -71,6 +71,7 @@
 <script>
     
     $(document).ready(function () {
+        NProgress.start();
         $(".video_com_con_detail").eq(0).show().siblings().hide();
         $(".video_com_menu_item").eq(0).addClass("video_menu_active");
         $(".video_com_menu_item").click(function () {
@@ -196,5 +197,8 @@
             urlToPostDanmu: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/stone/" + getUrlParam('id')
         });
     }
-    
+
+    $(window).load(function () {
+        NProgress.done();
+    })
 </script>
