@@ -30,7 +30,7 @@ table, tr, td, th {
     background:#eee;color:#000;
 }
 .footer {
-    background:#000;height:80px;
+    background:#000;height:80px;margin-top:20px;
 }
 .footer_content {
     height:80px;line-height:80px;width:980px;margin:0 auto;color:#fff;text-align:center;
