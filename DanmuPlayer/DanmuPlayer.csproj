@@ -216,6 +216,7 @@
     <Content Include="Content\jquery.mCustomScrollbar.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\mCSB_buttons.png" />
+    <Content Include="Content\nprogress.css" />
     <Content Include="Content\scojs.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -253,6 +254,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nprogress.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sco.tooltip.js" />

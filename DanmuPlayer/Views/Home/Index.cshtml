@@ -55,7 +55,9 @@
     </div>
 </div>
 <script>
+    //$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。 
     $(document).ready(function () {
+        NProgress.start();
         $.ajax({
             url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/getvideo",
             type: "get",
@@ -91,6 +93,10 @@
                 
             }
         });
+    })
+    //window.onload()即jquery写法中的$(window).load(function(){})必须等到页面内包括图片的所有元素加载完毕后才能执行。 
+    $(window).load(function () {
+        NProgress.done();
     })
 </script>
 
