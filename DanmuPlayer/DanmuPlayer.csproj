@@ -222,6 +222,7 @@
     <Content Include="Content\share.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\iconfont.svg" />
     <Content Include="fonts\VideoJS.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -238,6 +239,9 @@
     <Content Include="fonts\VideoJS.eot" />
     <Content Include="fonts\VideoJS.ttf" />
     <Content Include="fonts\VideoJS.woff" />
+    <Content Include="fonts\iconfont.eot" />
+    <Content Include="fonts\iconfont.ttf" />
+    <Content Include="fonts\iconfont.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\colpick.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -249,6 +253,7 @@
     <Content Include="Scripts\jquery.jscrollbar.js" />
     <Content Include="Scripts\jquery.mCustomScrollbar.js" />
     <Content Include="Scripts\Jquery.md5.js" />
+    <Content Include="Scripts\jquery.share.min.js" />
     <Content Include="Scripts\jquery.shCircleLoader.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />

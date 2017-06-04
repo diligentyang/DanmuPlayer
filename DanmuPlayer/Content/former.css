@@ -202,7 +202,7 @@ table, tr, td, th {
 }
 
 .video_foot {
-    margin-top:20px;height:50px;background:red;
+    margin-top:20px;height:50px;line-height:50px;text-align:center;
 }
 
 .spinner_t {
