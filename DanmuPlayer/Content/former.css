@@ -201,6 +201,10 @@ table, tr, td, th {
     color:aqua;
 }
 
+.video_foot {
+    margin-top:20px;height:50px;background:red;
+}
+
 .spinner_t {
   width: 60px;
   height: 60px;
