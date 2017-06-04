@@ -30,6 +30,7 @@ namespace DanmuPlayer
                       "~/Scripts/sco.tooltip.js",
                       "~/Scripts/colpick.js",
                       "~/Scripts/jquery.danmu.js",
+                      "~/Scripts/jquery.share.min.js",
                       "~/Scripts//main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -39,6 +40,7 @@ namespace DanmuPlayer
                       "~/Content/bootstrap.css",
                       "~/Content/main.css",
                       "~/Content/site.css",
+                      "~/Content/share.min.css",
                       "~/Content/nprogress.css"));
         }
     }

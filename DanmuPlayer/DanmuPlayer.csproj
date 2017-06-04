@@ -214,10 +214,12 @@
     <Content Include="Content\former.css" />
     <Content Include="Content\jquery.jscrollbar.css" />
     <Content Include="Content\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\jquery.share.min.js" />
     <Content Include="Content\main.css" />
     <Content Include="Content\mCSB_buttons.png" />
     <Content Include="Content\nprogress.css" />
     <Content Include="Content\scojs.css" />
+    <Content Include="Content\share.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\VideoJS.svg" />
