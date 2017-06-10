@@ -2,6 +2,20 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="pictureSlider poster-main" data-setting='{"width":980,"height":200,"posterWidth":640,"posterHeight":200,"scale":0.8,"autoPlay":true,"delay":3000,"speed":300}'>
+    <div class="poster-btn poster-prev-btn"></div>
+    <ul class="poster-list">
+        <li class="poster-item"><a href="#"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1497105405&di=a0928c1ab6f8c5b37326e0d76a519c80&src=http://www.zhuangxiuzhai.com/uploads/shoujidianzhao/201505211004.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497115591152&di=85c8609f3ed0c1a80478dab25b46d371&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F014239559c787e32f875370aae7c86.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2035348404,1421669444&fm=26&gp=0.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497710377&di=030edd42385a0f9991bffa8ef25efa79&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F14%2F87%2F87%2F85z58PICAV4_1024.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497115724122&di=63e12adaf6c0f5864b71a872ecd01d65&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a40255a08da932f875b38da5aa07.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497115795108&di=d5008abcee6bc710f909daf69b41a686&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0144c75799cfcd0000012e7e30ef38.jpg" width="100%" height="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497115724121&di=4153fddba8726d0e47039b9ff85c8f16&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01ee7355604ee40000009af0220de2.jpg" width="100%" height="100%"></a></li>
+    </ul>
+    <div class="poster-btn poster-next-btn"></div>
+</div>
+
 <div class="item">
     <div class="item_top">
         <div class="item_top_img">演播厅</div>
@@ -57,6 +71,7 @@
 <script>
     //$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。 
     $(document).ready(function () {
+        Carousel.init($(".pictureSlider"));
         NProgress.start();
         $.ajax({
             url: "http://123.206.61.229/danmuplayer/Backend/web/index.php/danmu/getvideo",

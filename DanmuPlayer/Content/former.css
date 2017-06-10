@@ -38,6 +38,10 @@ table, tr, td, th {
 .c_container {
     width:980px;margin:0 auto;
 }
+
+.pictureSlider {
+    margin-top:15px;height:200px;
+}
 .item {
     margin-top:15px;
 }

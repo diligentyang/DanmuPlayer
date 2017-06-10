@@ -210,6 +210,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\btn_l.png" />
+    <Content Include="Content\btn_r.png" />
+    <Content Include="Content\carousel.css" />
     <Content Include="Content\colpick.css" />
     <Content Include="Content\former.css" />
     <Content Include="Content\jquery.jscrollbar.css" />
@@ -243,6 +246,7 @@
     <Content Include="fonts\iconfont.ttf" />
     <Content Include="fonts\iconfont.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\colpick.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
